@@ -19,6 +19,16 @@ public class Aluno {
     public float notaFinal(){
         return (this.p1 + this.p2) / 2;
     }
+    // verifica se aluno passou
+    public String passou(){
+        return (this.notaFinal() >= 6) ? "Passou" : "Não Passou";
+    }
+    public void dadosAluno(){
+        System.out.println("Nome: " + this.nome +
+                " Nro. Aluno: " + this.nroAluno +
+                " Idade: " + this.idade +
+                " Situação  " + this.passou());
+    }
 
 }
 
