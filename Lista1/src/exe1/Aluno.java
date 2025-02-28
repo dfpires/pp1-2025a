@@ -17,10 +17,12 @@ public class Aluno {
     }
     // calcula nota final
     public float notaFinal(){
+
         return (this.p1 + this.p2) / 2;
     }
     // verifica se aluno passou
     public String passou(){
+
         return (this.notaFinal() >= 6) ? "Passou" : "Não Passou";
     }
     public void dadosAluno(){

@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6783c569-15a2-4b9f-8ce2-bbea1e5802c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Lista1/src/MainCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Lista1/src/exe2/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lista1/src/MainAluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lista1/src/MainAluno.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lista1/src/exe1/Aluno.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lista1/src/exe1/Aluno.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +37,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Application.MainAluno.executor": "Run",
+    "Application.MainCliente.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -47,14 +49,14 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -67,7 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1740099775738</updated>
       <workItem from="1740099779277" duration="1063000" />
-      <workItem from="1740609915445" duration="2795000" />
+      <workItem from="1740609915445" duration="3193000" />
+      <workItem from="1740701774256" duration="2995000" />
     </task>
     <servers />
   </component>
