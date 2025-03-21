@@ -82,4 +82,22 @@ public class Cliente {
     public float getSaldo() {
         return saldo;
     }
+    // depositar
+    public void depositar(float valor){
+        this.setSaldo(this.saldo + valor);
+    }
+    // sacar
+    public void sacar(float valor){
+        this.setSaldo(this.saldo - valor);
+    }
+
+
+    public String exibeCliente() {
+        return "Cliente{" +
+                "nroConta='" + nroConta + '\'' +
+                ", nroAgencia='" + nroAgencia + '\'' +
+                ", nome='" + nome + '\'' +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
