@@ -24,7 +24,7 @@ public class Carro {
             this.velocidade = velocidade;
         }
         else {
-            System.out.println("velocidade invalida");
+            System.out.println("velocidade inválida");
         }
     }
     public void setModelo(String modelo){
@@ -52,8 +52,7 @@ public class Carro {
         return this.modelo;
     }
 
-    @Override
-    public String toString() {
+    public String exibeCarro() {
         return "Carro{" +
                 "marca='" + this.marca + '\'' +
                 ", modelo='" + this.modelo + '\'' +
@@ -62,8 +61,12 @@ public class Carro {
                 '}';
     }
     public void acelerar(float x){
-        this.velocidade += x;
+        this.setVelocidade(this.velocidade + x);
         this.verificaVelMaxima();
+    }
+    // frear o carro de x unidades
+    public void frear(float x){
+        this.setVelocidade(this.velocidade - x);
     }
     private void verificaVelMaxima(){
         if (this.velocidade > 200){
