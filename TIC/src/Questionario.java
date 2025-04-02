@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
-public class AtivPart {
+public class Questionario {
     private Long id;
     private String nome;
     private List<Dominio> dominios;
     private float pontuacao;
 
-    public AtivPart(){
+    public Questionario(){
         this.dominios = new ArrayList<Dominio>();
     }
-    public AtivPart(Long id, String nome){
+    public Questionario(Long id, String nome){
         this.id = id;
         this.nome = nome;
         this.dominios = new ArrayList<Dominio>();
@@ -49,6 +49,7 @@ public class AtivPart {
     // adiciona Dominios na Ativ Part
     public void addDominio(Dominio dominio){
         this.dominios.add(dominio);
+        this.calculaPontuacao();
     }
     // calcula a pontuação da Ativ Part
     public void calculaPontuacao(){
@@ -60,7 +61,7 @@ public class AtivPart {
     }
     @Override
     public String toString() {
-        return "AtivPart{" +
+        return "Questionario{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", dominios=" + dominios +

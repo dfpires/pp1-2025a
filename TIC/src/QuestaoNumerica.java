@@ -1,15 +1,15 @@
-public class ItemDominio {
+public class QuestaoNumerica {
     private Long id;
     private String nome;
-    private int pontuacao;
+    private int numero;
 
-    public ItemDominio() {
+    public QuestaoNumerica() {
     }
 
-    public ItemDominio(Long id, String nome, int pontuacao) {
+    public QuestaoNumerica(Long id, String nome, int numero) {
         this.id = id;
         this.nome = nome;
-        this.pontuacao = pontuacao;
+        this.numero = numero;
     }
 
     public Long getId() {
@@ -28,20 +28,20 @@ public class ItemDominio {
         this.nome = nome;
     }
 
-    public int getPontuacao() {
-        return pontuacao;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setPontuacao(int pontuacao) {
-        this.pontuacao = pontuacao;
+    public void setNumero(int pontuacao) {
+        this.numero = numero;
     }
 
     @Override
     public String toString() {
-        return "\nItemDominio{" +
+        return "\nQuestaoNumerica{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", pontuacao=" + pontuacao +
+                ", numero=" + numero +
                 '}';
     }
 }
