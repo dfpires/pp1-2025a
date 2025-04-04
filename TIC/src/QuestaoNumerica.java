@@ -1,46 +1,27 @@
-public class QuestaoNumerica {
-    private Long id;
-    private String nome;
+public class QuestaoNumerica extends Questao{
     private int numero;
 
     public QuestaoNumerica() {
+        super(); // chama construtor da superclasse
     }
 
     public QuestaoNumerica(Long id, String nome, int numero) {
-        this.id = id;
-        this.nome = nome;
+        super(id, nome); // chama construtor da superclasse
         this.numero = numero;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getNumero() {
         return numero;
     }
 
-    public void setNumero(int pontuacao) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    @Override
+    @Override // anulação de método herdado
     public String toString() {
         return "\nQuestaoNumerica{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
+               super.toString() +
                 ", numero=" + numero +
                 '}';
     }
