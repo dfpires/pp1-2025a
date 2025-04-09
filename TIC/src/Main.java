@@ -7,11 +7,15 @@ public class Main {
         // cria 2 itens de domínio
         QuestaoNumerica id1 = new QuestaoNumerica(11L, "Ver", 100);
         QuestaoNumerica id2 = new QuestaoNumerica(12L, "Ouvir", 100);
+        QuestaoBooleana qb = new QuestaoBooleana(13L, "Aspecto Motor", true);
+        QuestaoTexto qt = new QuestaoTexto(14L, "Nome", "Lucas");
         // cria 1 domínio
         Dominio d1 = new Dominio(1L, "Domínio Sensorial");
         // adiciona os itens de domínio no domínio
-        d1.addQuestaoNumerica(id1);
-        d1.addQuestaoNumerica(id2);
+        d1.addQuestao(id1); // polimorfismo
+        d1.addQuestao(id2); // polimorfismo
+        d1.addQuestao(qb); // polimorfismo
+        d1.addQuestao(qt); // polimorfismo
       //  System.out.println(d1); // chama toString() de d1
 
         Questionario ap1 = new Questionario(100L, "Atividades e Participações");

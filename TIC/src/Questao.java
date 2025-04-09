@@ -1,4 +1,4 @@
-public class Questao {
+public abstract class Questao {
     protected Long id;
     protected String nome;
 

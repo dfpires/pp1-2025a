@@ -51,7 +51,7 @@ public class Dominio {
 
     // adiciona ItemDominio no vetor
     public void addQuestao(Questao itemDominio){
-        this.itens.add(itemDominio);
+        this.itens.add(itemDominio); // polimorfismo
         calculaPontuacao();
     }
     // calcula a pontuação do domínio
