@@ -25,4 +25,7 @@ public class QuestaoNumerica extends Questao{
                 ", numero=" + numero +
                 '}';
     }
+    public String mensagem(){
+        return "número";
+    }
 }

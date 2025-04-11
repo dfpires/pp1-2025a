@@ -18,9 +18,12 @@ public class QuestaoBooleana extends Questao {
 
     @Override
     public String toString() {
-        return "QuestaoBooleana{" +
+        return "\nQuestaoBooleana{" +
                 super.toString() +
                 "logico=" + logico +
                 '}';
+    }
+    public String mensagem(){
+        return "booleano";
     }
 }

@@ -16,7 +16,7 @@ public class Main {
         d1.addQuestao(id2); // polimorfismo
         d1.addQuestao(qb); // polimorfismo
         d1.addQuestao(qt); // polimorfismo
-      //  System.out.println(d1); // chama toString() de d1
+        System.out.println(d1); // chama toString() de d1
 
         Questionario ap1 = new Questionario(100L, "Atividades e Participações");
         ap1.addDominio(d1);
@@ -25,7 +25,7 @@ public class Main {
         Candidato c1 = new Candidato(3L, "Diego", "123", "Rua Luzia", "Centro",
                 "Franca", new Date());
         Resposta r1 = new Resposta(10L, new Date(), c1, ap1);
-        System.out.println(r1);
+      //  System.out.println(r1);
 
     }
 }

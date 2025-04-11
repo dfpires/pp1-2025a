@@ -34,4 +34,5 @@ public abstract class Questao {
                 ", nome='" + nome + '\'' +
                 '}';
     }
+    public abstract String mensagem();
 }

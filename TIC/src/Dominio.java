@@ -55,16 +55,25 @@ public class Dominio {
         calculaPontuacao();
     }
     // calcula a pontuação do domínio
-    public void calculaPontuacao(){
+    public void calculaPontuacao(){ // método específico para QN
         int soma = 0;
        for( Questao obj: this.itens){ // para cada item de domínio
-         //  soma += obj.getNumero(); // soma a pontuação
+           if (obj instanceof QuestaoNumerica) {
+               QuestaoNumerica aux = (QuestaoNumerica) obj;
+               soma += aux.getNumero(); // soma a pontuação
+           }
        }
        this.pontuacao = (float) soma / this.itens.size();
     }
 
     @Override
     public String toString() {
+        StringBuilder aux = new StringBuilder();
+        for(Questao q: itens){
+            aux.append(q.mensagem()); // polimorfismo
+        }
+        System.out.println(aux);
+
         return "\nDominio{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +

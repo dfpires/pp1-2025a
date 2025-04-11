@@ -15,9 +15,12 @@ public class QuestaoTexto extends Questao{
     }
     @Override
     public String toString() {
-        return "QuestaoTexto{" +
+        return "\nQuestaoTexto{" +
                 super.toString() +
                 "texto='" + texto + '\'' +
                 '}';
+    }
+    public String mensagem(){
+        return "texto";
     }
 }
