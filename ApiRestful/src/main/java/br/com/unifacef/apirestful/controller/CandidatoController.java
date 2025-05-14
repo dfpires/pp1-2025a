@@ -23,7 +23,25 @@ public class CandidatoController {
     }
     @DeleteMapping("/{id}")
     // id será passado no caminho da rota
-    public void deleteCandidato(@PathVariable Long id) {
-
+    public String deleteCandidato(@PathVariable Long id) {
+        // removeIf percorre o vetor procurando candidato com id igual ao Insomnia
+        boolean achou =
+          (this.candidatos.removeIf(candidato -> candidato.getId() == id));
+        return achou ? "Removido com sucesso" : "Candidato não encontrado";
+    }
+    @PutMapping("/{id}")
+    public Candidato updateCandidato(@RequestBody Candidato novo,
+                                     @PathVariable Long id) {
+        // percorre o vetor
+        for (Candidato obj: this.candidatos) {
+            if (obj.getId() == id) {
+                obj.setNome(novo.getNome());
+                obj.setCidade(novo.getCidade());
+                obj.setEndereco(novo.getEndereco());
+                obj.setNiver(novo.getNiver());
+                return obj;
+            }
+        }
+        return null; // não encontrou candidato
     }
 }
