@@ -21,4 +21,8 @@ public class CandidatoService {
         // objeto não precisa ser instanciado para ser usado
         return candidatoRepository.findAll();
     }
+    public Candidato addCandidato(Candidato candidato){
+        // objeto não precisa ser instanciado para ser usado
+        return candidatoRepository.save(candidato);
+    }
 }

@@ -3,9 +3,7 @@ package br.com.unifacef.bdrestful.controller;
 import br.com.unifacef.bdrestful.model.Candidato;
 import br.com.unifacef.bdrestful.service.CandidatoService;
 import jakarta.persistence.Entity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,9 @@ public class CandidatoController {
     @GetMapping
     public List<Candidato> getCandidatos(){
         return this.candidatoService.getCandidatos();
+    }
+    @PostMapping
+    public Candidato addCandidato(@RequestBody Candidato candidato){
+        return this.candidatoService.addCandidato(candidato);
     }
 }
