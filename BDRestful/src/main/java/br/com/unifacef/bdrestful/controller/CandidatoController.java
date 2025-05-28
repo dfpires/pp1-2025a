@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/candidato")
@@ -23,5 +24,14 @@ public class CandidatoController {
     @PostMapping
     public Candidato addCandidato(@RequestBody Candidato candidato){
         return this.candidatoService.addCandidato(candidato);
+    }
+    @DeleteMapping("/{id}")
+    public String removeCandidato(@PathVariable Long id){
+        return this.candidatoService.removeCandidato(id);
+    }
+    @PutMapping("/{id}")
+    public Optional<Candidato> updateCandidato(@PathVariable Long id,
+                      @RequestBody Candidato novo){
+        return this.candidatoService.updateCandidato(id, novo);
     }
 }
