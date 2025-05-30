@@ -1,7 +1,9 @@
 package br.com.unifacef.bdrestful.service;
 
 import br.com.unifacef.bdrestful.model.Candidato;
+import br.com.unifacef.bdrestful.model.Formulario;
 import br.com.unifacef.bdrestful.repository.CandidatoRepository;
+import br.com.unifacef.bdrestful.repository.FormularioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,18 +16,28 @@ public class CandidatoService {
     // reduzir acoplamento
     // posso usar o objeto sem instanciá-lo explicitamente
     private CandidatoRepository candidatoRepository;
-
+    private FormularioRepository formularioRepository;
     // construtor é executado automaticamente
-    public CandidatoService(CandidatoRepository candidatoRepository) {
+    public CandidatoService(CandidatoRepository candidatoRepository,
+                            FormularioRepository formularioRepository) {
         this.candidatoRepository = candidatoRepository;
+        this.formularioRepository = formularioRepository;
     }
     public List<Candidato> getCandidatos(){
         // objeto não precisa ser instanciado para ser usado
         return candidatoRepository.findAll();
     }
-    public Candidato addCandidato(Candidato candidato){
+    public Candidato addCandidato(Candidato candidato) {
         // objeto não precisa ser instanciado para ser usado
-        return candidatoRepository.save(candidato);
+        // recupera os dados do formulário cujo id está em candidato
+        Formulario aux =
+    formularioRepository.findById(candidato.getFormulario().getId()).orElse(null);
+        if (aux != null) {
+            // existe formulário
+            candidato.setFormulario(aux);
+            return candidatoRepository.save(candidato);
+        }
+        return null;
     }
     public String removeCandidato(Long id){
         if (candidatoRepository.existsById(id)){

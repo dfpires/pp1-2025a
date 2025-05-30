@@ -1,8 +1,7 @@
 package br.com.unifacef.bdrestful.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 // este é um exemplo de ORM - Mapeamento objeto relacional
@@ -14,16 +13,10 @@ public class Candidato {
     private Long id;
     private String nome, cidade, endereco;
     private Date niver;
-
-    public Candidato() {
-    }
-    public Candidato(Long id, String nome, String cidade, String endereco, Date niver) {
-        this.id = id;
-        this.nome = nome;
-        this.cidade = cidade;
-        this.endereco = endereco;
-        this.niver = niver;
-    }
+    // relação com a classe Formulário
+    @ManyToOne
+    @JoinColumn(name="formulario_id")
+    private Formulario formulario;
 
     public Long getId() {
         return id;
@@ -56,12 +49,16 @@ public class Candidato {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
     public Date getNiver() {
         return niver;
     }
-
     public void setNiver(Date niver) {
         this.niver = niver;
+    }
+    public Formulario getFormulario() {
+        return formulario;
+    }
+    public void setFormulario(Formulario formulario) {
+        this.formulario = formulario;
     }
 }
