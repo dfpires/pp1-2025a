@@ -9,54 +9,52 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
-// classe que contem as regras de negócio do BE
+@Service // padrão de projeto esteriótipo
+// essa classe tem as regras de negócio do backend
 public class CandidatoService {
-    // injeção de dependência (padrão de projeto)
-    // reduzir acoplamento
-    // posso usar o objeto sem instanciá-lo explicitamente
-    private CandidatoRepository candidatoRepository;
-    private FormularioRepository formularioRepository;
-    // construtor é executado automaticamente
-    public CandidatoService(CandidatoRepository candidatoRepository,
-                            FormularioRepository formularioRepository) {
+    // cria um objeto do tipo da interface CandidatoRepository
+    CandidatoRepository candidatoRepository;
+    FormularioRepository formularioRepository;
+    // construtor com parâmetros
+    CandidatoService(CandidatoRepository candidatoRepository,
+                     FormularioRepository formularioRepository) {
         this.candidatoRepository = candidatoRepository;
         this.formularioRepository = formularioRepository;
     }
-    public List<Candidato> getCandidatos(){
-        // objeto não precisa ser instanciado para ser usado
+    // lista todos os candidatos
+    public List<Candidato> listaCandidatos(){
+        // select * from candidato
         return candidatoRepository.findAll();
     }
-    public Candidato addCandidato(Candidato candidato) {
-        // objeto não precisa ser instanciado para ser usado
-        // recupera os dados do formulário cujo id está em candidato
-        Formulario aux =
-    formularioRepository.findById(candidato.getFormulario().getId()).orElse(null);
-        if (aux != null) {
-            // existe formulário
-            candidato.setFormulario(aux);
+    // insere um candidato
+    public Candidato addCandidato(Candidato candidato){
+         // verifica se o formulário associado ao candidato tem no BD
+        Formulario formulario =
+        formularioRepository.findById(candidato.getFormulario().getId()).orElse(null);
+        if (formulario != null){
+            candidato.setFormulario(formulario); // candidato tenha dados do formulário
             return candidatoRepository.save(candidato);
         }
         return null;
+
     }
-    public String removeCandidato(Long id){
+    // remove um candidato
+    public boolean removeCandidato(Long id){
+        // verifica se o candidato existe
         if (candidatoRepository.existsById(id)){
             candidatoRepository.deleteById(id);
-            return "Candidato removido com sucesso";
+            return true;
         }
-        return "Candidato nao encontrado"; // não achou
+        return false;
     }
+    // atualiza um candidato
     public Optional<Candidato> updateCandidato(Long id, Candidato novo){
-        // verifica se o candidato existe no BD
-        Optional<Candidato> candidato = candidatoRepository.findById(id);
-        if (candidato.isPresent()){ // encontrou
-            candidato.get().setNome(novo.getNome());
-            candidato.get().setNiver(novo.getNiver());
-            candidato.get().setCidade(novo.getCidade());
-            candidato.get().setEndereco(novo.getEndereco());
-            candidatoRepository.save(candidato.get());
-            return candidato; // retorna candidato atualizado
-        }
-        return Optional.empty(); // não encontrou
+        return candidatoRepository.findById(id).map(cand -> {
+            cand.setNome(novo.getNome());
+            cand.setCidade(novo.getCidade());
+            cand.setEndereco(novo.getEndereco());
+            cand.setNiver(novo.getNiver());
+            return candidatoRepository.save(cand); // atualiza por cand tem id
+        });
     }
 }

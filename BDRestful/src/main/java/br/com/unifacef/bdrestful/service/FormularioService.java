@@ -8,16 +8,18 @@ import java.util.List;
 
 @Service
 public class FormularioService {
-    //injeção de dependência
+    // injeção de dependência
+    // formularioRepository pode ser usado sem instanciá-lo
     private FormularioRepository formularioRepository;
+    // construtor
     public FormularioService(FormularioRepository formularioRepository) {
         this.formularioRepository = formularioRepository;
     }
-    // consulta formulários
+    // seleção
     public List<Formulario> getFormularios(){
         return formularioRepository.findAll();
     }
-    // adiciona formulário
+    // inserção
     public Formulario addFormulario(Formulario formulario){
         return formularioRepository.save(formulario);
     }

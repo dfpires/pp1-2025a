@@ -14,6 +14,7 @@ public class FormularioController {
     public FormularioController(FormularioService formularioService) {
         this.formularioService = formularioService;
     }
+    // consulta
     @GetMapping
     public List<Formulario> getFormularios(){
         return formularioService.getFormularios();
@@ -22,4 +23,5 @@ public class FormularioController {
     public Formulario addFormulario(@RequestBody Formulario formulario){
         return formularioService.addFormulario(formulario);
     }
+
 }

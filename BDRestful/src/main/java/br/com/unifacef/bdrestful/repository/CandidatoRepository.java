@@ -1,15 +1,15 @@
 package br.com.unifacef.bdrestful.repository;
+// esta é uma classe especial, chamada classe interface
+// na interface, todos os métodos são abstratos, portanto
+// não são implementados aqui
 import br.com.unifacef.bdrestful.model.Candidato;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-// uma classe interface todos os métodos são abstratos
-// ou seja, não são implementados
-// esta interface herda os métodos de outra interface
-// a interface JpaRepository, considerando a classe Candidato
-// o Long é para indicar o tipo da chave primária de Candidato
+// a interface herda de outra interface chamada JpaRepository
+// o repositório do banco esta vinculado à tabela Candidato
+// o tipo de dado da chave primária da tabela é Long
 public interface CandidatoRepository extends
         JpaRepository<Candidato, Long> {
-    // esta interface vai herdar os métodos de CRUD de BD
-    // CRUD - Create, Retrieve, Update, Delete
-
+    // esta interface terá todos os métodos com a tabela
+    // Candidato do banco de dados
+    // ex: findAll (select), save (insert), remove (delete)
 }

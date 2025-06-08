@@ -13,7 +13,8 @@ public class Formulario {
     private Long id;
     private String nome;
     private Date dataCriacao;
-    // relação com Candidato
+    // associação com Candidato
+    // formulário é o nome do relacionamento
     @OneToMany(mappedBy = "formulario")
     @JsonIgnore
     private List<Candidato> candidatos;
